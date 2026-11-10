@@ -1,14 +1,20 @@
-print("crie um login")
+# "banco de dados" temporario usando dicionario 
+funcionarios = {
+     "admin":"123"
+}
+# funcao com def para cadastrar um funcionario
+def cadastrar_funcinario():
+    print("\n--- CADASTRO DE NOVO FUNCIONÁRIO ---")
+    novo_usuario = input('escolha um nome de usuario: ')
 
-usuario = input('digite um usuário: ')
-senha = input('digite uma senha: ')
-
-while True:
-    print('ENTRE NA SUA CONTA: ')
-    usuario1 = input('DIGITE O SEU USUÁRIO: ') 
-    senha1 = input ("DIGITE SUA SENHA: ")
-    if (usuario1 == usuario) and (senha1 == senha) :
-        print(f"LOGIN FEITO COM SUCESSO, SEJA BEM VINDO {usuario}!!")
-        break
+    #verifica se esse usuario ja esta cadastrado no sistema
+    if novo_usuario in funcionarios:
+        print("Erro: Este usuário já está cadastrado!")
     else:
-        print("SENHA OU USUARIO INCORRETO, TENTE NOVAMENTE")
+        nova_senha = input('Crie uma nova senha')
+
+        funcionarios[novo_usuario] = nova_senha
+        print('PARABENS: cadastro do novo funcionario criado com sucesso')
+
+cadastrar_funcinario()
+print(f'sistema atualizado com sucesso {funcionarios}')
